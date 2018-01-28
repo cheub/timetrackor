@@ -27,7 +27,7 @@ public class ProjectEditor extends VerticalLayout {
 	private final ProjectRepository repository;
 
 	/**
-	 * The currently edited customer
+	 * The currently edited project
 	 */
 	private Project project;
 
@@ -84,7 +84,7 @@ public class ProjectEditor extends VerticalLayout {
 		final boolean persisted = project.getId() != null;
 		if (persisted) {
 			// Find fresh entity for editing
-			project = repository.findOne(project.getId());
+			this.project = repository.findOne(project.getId());
 		} else {
 			this.project = project;
 		}
@@ -93,7 +93,7 @@ public class ProjectEditor extends VerticalLayout {
 		// Bind customer properties to similarly named fields
 		// Could also use annotation or "manual binding" or programmatically
 		// moving values from fields to entities before saving
-		binder.setBean(project);
+		binder.setBean(this.project);
 
 		setVisible(true);
 

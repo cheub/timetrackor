@@ -1,6 +1,7 @@
 package de.glk.projecttracker.model;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -46,8 +47,8 @@ public class Profile {
 		this.taskEnd = taskEnd;
 	}
 
-	public Project getActiveProject() {
-		return activeProject;
+	public Optional<Project> getActiveProject() {
+		return Optional.ofNullable(activeProject);
 	}
 
 	public void setActiveProject(Project activeProject) {
